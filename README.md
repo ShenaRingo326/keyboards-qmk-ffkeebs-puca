@@ -1,1 +1,1 @@
-# VIAL/QMK firmware
+# VIAL/QMK firmware code snippets
