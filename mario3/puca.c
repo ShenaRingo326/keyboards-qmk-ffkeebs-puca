@@ -41,6 +41,31 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
     return false;
 }
 
+#define RGB_LAYER0 0x00, 0x48, 0xAA
+#define RGB_LAYER1 0xFF, 0x55, 0x00
+
+//This will run every time the layer is updated
+uint8_t currentLayer;
+
+layer_state_t layer_state_set_user(layer_state_t state) { 
+    currentLayer = get_highest_layer(state);
+
+    for (int iii = 0; iii <= RGBLED_NUM; iii++)  {
+        switch (currentLayer) {
+            case 0:
+                setrgb(RGB_LAYER0, &led[iii]);
+                break;
+            case 1:
+                setrgb(RGB_LAYER1, &led[iii]);
+                break;
+        }
+    }
+
+    rgblight_set();
+
+    return state;
+}
+
 #define ANIM_FRAMES 3
 #define ANIM_FRAME_DURATION 200     // how long each frame lasts in ms
 #define ANIM_SIZE 512               // number of bytes in array, minimize for adequate firmware size, max is 1024
