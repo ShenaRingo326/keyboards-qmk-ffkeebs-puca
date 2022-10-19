@@ -70,7 +70,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #define ANIM_FRAME_DURATION 200     // how long each frame lasts in ms
 #define ANIM_SIZE 512               // number of bytes in array, minimize for adequate firmware size, max is 1024
 
+// static long int oled_timeout    = 300000; // should sleep after this period of 0 wpm (5 mins = 5 x 60 x 1000ms)
 uint32_t anim_timer             = 0;
+// uint32_t sleep_timer            = 0;
 uint8_t  current_anim_frame     = 0;
 
 // OLED
@@ -312,7 +314,7 @@ bool oled_task_kb(void) {
             oled_write_P(PSTR("Base\n"), false);
             break;
         case 1:
-            oled_write_P(PSTR("Other\n"), false);
+            oled_write_P(PSTR("Xcode\n"), false);
             break;
     }
     return true;

@@ -28,3 +28,7 @@ Credit & Props to Pablo Hernández for his [work](https://gitlab.com/pablunsky/m
 
 - "fast" byte array in puca.c
 - 3 frames, 512 bytes each frame
+
+## QMK
+
+- make ffkeebs/puca:xcode
